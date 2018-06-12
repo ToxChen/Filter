@@ -1,0 +1,348 @@
+//Mixin
+@mixin xl
+  @media (max-width: 1200px)
+    @content
+    
+@mixin lg
+  @media (max-width: 992px)
+    @content
+    
+@mixin md
+  @media (max-width: 768px)
+    @content
+
+@mixin sm
+  @media (max-width: 576px)
+    @content
+  
+//Globel
+*
+  position: relative
+  box-sizing: border-box
+
+html, body
+  font-family: 'Roboto', arial, sans-serif
+  background-color: $custom_bgColor
+
+a
+  text-decoration: none
+  &:hover, &:active, &:focus
+    text-decoration: none
+    outline: none
+
+ul
+  list-style: none
+  margin: 0
+  padding: 0
+
+input, select, textarea
+  border: none
+  &:focus
+    outline: none
+
+img
+  max-width: 100%
+  height: auto
+
+//Text
+h1
+  font-size: 36px
+  font-weight: bold
+  line-height: 36px
+  color: $custom_secondary
+  margin-bottom: 24px
+
+h2
+  font-size: 24px
+  font-weight: bold
+  line-height: 36px
+  color: $custom_secondary
+  margin-bottom: 16px
+
+h3
+  font-size: 24px
+  color: $black
+
+h4
+  font-size: 20px
+  font-weight: bold
+  color: $black
+
+p
+  color: $black
+  line-height: 24px
+  margin-bottom: 16px
+
+//Btn
+.btn
+  display: inline-block
+  vertical-align: top
+  position: relative
+  margin: 0
+  height: 36px
+  line-height: 36px
+  padding: 0 38px 0 16px
+  box-sizing: border-box
+  font-size: 16px
+  text-align: center
+  font-family: 'Roboto', arial, sans-serif
+  letter-spacing: 0
+  text-decoration: none
+  color: $custom_secondary
+  border: 1px solid $custom_secondary
+  border-radius: 18px
+  outline: 0
+  cursor: pointer
+  overflow: hidden
+  user-select: none
+  user-drag: none
+  transition: all 0.3s
+  &:hover
+    background-color: $custom_secondary
+    color: $white
+  &:focus
+    box-shadow: none
+
+//Label
+.labels
+  margin-bottom: 16px
+  .organizer-label
+    font-weight: bold
+    color: $black
+    margin-right: 20px
+  .category-label
+    font-style: italic
+    padding: 3px 16px
+    background-color: $custom_medium-grey
+    color: $white
+    border-radius: 15px
+.date-time
+  color: $custom_dark-grey
+  .date
+    margin-right: 20px
+    +md
+      margin-bottom: 4px
+  i
+    margin-right: 7px
+    color: $black
+
+//Header
+#header
+  background-color: $custom_primary
+  height: 92px
+  line-height: 92px
+  overflow: hidden
+  +md
+    height: 69px
+    line-height: 69px
+  .logo
+    display: block
+    width: 300px
+    padding-left: 40px
+    +md
+      margin: 0 auto
+      padding-left: 0
+      text-align: center
+  .search
+    width: calc(100% - 300px)
+    padding-left: 42px
+    font-size: 20px
+    +md
+      display: none
+    .search-icon
+      width: 20px
+      height: 20px
+      position: absolute
+      left: 0
+      top: 50%
+      transform: translateY(-50%)
+    input
+      width: 388px
+      height: 32px
+      padding-left: 42px
+      background-color: transparent
+      border: none
+      border-bottom: 1px solid $white
+      color: $white
+      +lg
+        width: 100%
+    ::placeholder
+      font-style: italic
+      color: rgba(255,255,255,0.50)
+
+.search-md
+  padding: 14px 40px
+  font-size: 20px
+  .search-bar
+    width: 100%
+    .search-icon
+      width: 20px
+      height: 20px
+      position: absolute
+      left: 0
+      top: 50%
+      transform: translateY(-50%)
+    input
+      width: 100%
+      height: 32px
+      padding-left: 42px
+      background-color: transparent
+      border: none
+      border-bottom: 1px solid $black
+      color: $black
+    ::placeholder
+      font-style: italic
+      color: $custom_dark-grey
+
+//Wrapper
+.side-search
+  width: 300px
+  +md
+    width: 100%
+  >div
+    padding: 24px 40px
+    background-color: $custom_light-grey
+    border-bottom: 1px solid $custom_medium-grey
+    &:last-child
+      border: none
+  .location-search
+    select.country
+      margin-top: 15px
+      width: 100%
+      height: 40px
+      padding-left: 8px
+      border: none
+      border-radius: 2px
+      appearance: none
+      background-image: url(../images/select-arrow.svg)
+      background-size: auto 100%
+      background-repeat: no-repeat
+      background-position: center right
+      background-color: $white
+  .date-search
+    .start-end-date
+      margin-top: 24px
+    .start-date, .end-date
+      text-align: right
+      span
+        padding-right: 14px
+      input
+        height: 40px
+        padding-left: 8px
+    .start-date
+      margin-bottom: 8px
+  .categories-search
+    .categories-group
+      margin-top: 24px
+      font-size: 16px
+      .categories-check
+        margin-bottom: 8px
+        font-weight: 400
+        input[type="checkbox"]
+          display: none
+        input[type="checkbox"], .checked
+          width: 16px
+          height: 16px
+          background-color: $white
+        input[type="checkbox"]:checked + label .checked
+          background-color: $custom_secondary
+        label
+          margin-bottom: 0
+          .checked
+            margin-right: 6px
+            border-radius: 2px
+
+.main-content
+  width: calc(100% - 300px)
+  margin-top: 24px
+  padding-left: 42px
+  +md
+    width: 100%
+    padding: 0 40px
+
+  .results
+    .results-num
+      font-weight: bold
+      color: $custom_secondary
+      margin: 0 6px
+
+  .category
+    margin-bottom: 24px
+    .btn-custom
+      margin-right: 8px
+      font-style: italic
+      .delete
+        position: absolute
+        top: 50%
+        right: 16px
+        width: 14px
+        height: 14px
+        background-color: transparent
+        border-radius: 50%
+        border: 1px solid $custom_secondary
+        transform: translateY(-50%)
+        transition: all 0.3s
+        &:before, &:after
+          content: ""
+          position: absolute
+          width: 8px
+          height: 1px
+          background-color: $custom_secondary
+          top: 50%
+          left: 50%
+        &:before
+          transform: translate(-50%, -50%) rotate(45deg)
+        &:after
+          transform: translate(-50%, -50%) rotate(-45deg)
+      &:hover
+        .delete
+          background-color: $white
+
+  .items
+    margin-bottom: 24px
+    .item
+      width: 100%
+      margin-bottom: 24px
+      box-shadow: 2px 5px 10px $custom_light-grey
+      transition: all 0.3s
+      .item-img
+        flex-shrink: 0
+        width: 220px
+        background-size: cover
+        background-position: center center
+        background-repeat: no-repeat
+        +lg
+          width: 100%
+          height: 196px
+      .item-info
+        width: 100%
+        padding: 24px 20px
+        background-color: $white
+      &:last-child
+        margin-bottom: 0
+      &:hover
+        box-shadow: 2px 5px 25px $custom_medium-grey
+
+  .tabs
+    margin-bottom: 24px
+    .tab
+      width: 42px
+      height: 42px
+      line-height: 42px
+      background-color: $white
+      color: $custom_secondary
+      text-align: center
+      border: 1px solid #ECEEEF
+      transition: all 0.3s
+      &:hover
+        background-color: $custom_secondary
+        color: $white
+        border: 1px solid $custom_secondary
+    .prev, .next
+      img
+        width: 10px
+        height: auto
+    .active
+      background-color: $custom_secondary
+      color: $white
+      border: 1px solid $custom_secondary
